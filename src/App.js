@@ -43,7 +43,6 @@ function App() {
           checked ? (x.completed = true) : (x.completed = false);
         }
       });
-
       return [...i];
     });
   };
@@ -52,9 +51,6 @@ function App() {
   const Pagination = (num) => {
      setFirstpage();
      setSecondpage(0);
-
-    // setFirstpage(num * pagenumber);
-    // setSecondpage((num * pagenumber)+pagenumber);
     
     setFirstpage(num * pageDataCount);
     setSecondpage((num * pageDataCount)+pageDataCount);
