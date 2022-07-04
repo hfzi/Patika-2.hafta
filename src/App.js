@@ -51,11 +51,13 @@ function App() {
   const Pagination = (num) => {
      setFirstpage();
      setSecondpage(0);
+     const datacount = num * pagenumber-50
     
-    setFirstpage(num * pageDataCount);
-    setSecondpage((num * pageDataCount)+pageDataCount);
+    setFirstpage(datacount);
+    setSecondpage(datacount+pagenumber);
 
     console.log(firstpage, secondpage, "sayfaid", num, pagenumber, pageDataCount);
+    console.log(datacount, Number(datacount)+Number(pagenumber));
   };
 
   // Sayfadaki veri sayısı
@@ -69,7 +71,7 @@ function App() {
   var cekilenveriler = item
     .sort((a, z) => {
       var val = dataid ? a.id - z.id : z.id - a.id;
-      console.log(dataid)
+      //console.log(dataid)
       return val
       
     })
@@ -99,7 +101,7 @@ function App() {
         type="text"
         onChange={(e) => setPagenumber(e.target.value)}
       ></input>
-      {pageDataCount ? " "+pageDataCount+" Page per data " : "Plase write number "}
+      {pageDataCount ? " "+pagenumber+" Page per data " : "Plase write number "}
       {arr.map((x) => (
         <button value={x} onClick={(e) => Pagination(e.target.value)}>
           {x}
